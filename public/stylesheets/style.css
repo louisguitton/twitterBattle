@@ -58,3 +58,5 @@ body {
 .count {
     float:right
 }
+
+.well p { word-wrap: break-word;}

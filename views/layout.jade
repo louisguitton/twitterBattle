@@ -19,6 +19,8 @@ html
     script(src='javascripts/jquery.js')
     // Bootstrap Core JavaScript
     script(src='javascripts/bootstrap.min.js')
+    // load fontawesome
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
 
   body
     // Navigation
@@ -38,9 +40,11 @@ html
             li
               a(href='/') Battles
             li
+              a(href='/create') Create Battle
+            li
               a(href='/profile') Profile
             li
-              a(href='/create') Create Battle
+              a(href='/auth') Login or Signup
         // /.navbar-collapse
       // /.container
     // Page content
