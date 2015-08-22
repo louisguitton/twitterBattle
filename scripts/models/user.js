@@ -27,7 +27,9 @@ var userSchema = mongoose.Schema({
         token        : String,
         email        : String,
         name         : String
-    }
+    },
+    battles_authored : [String],
+    battles_favorited: [String]
 
 });
 

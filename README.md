@@ -4,11 +4,15 @@
 $ DEBUG=twitterbattle && npm start
 ```
 
+# Stack
+
+Node.JS + ExpressJS + MongoDB + Socket.io + Twitter Streaming API + Bootstrap + FontAwesome + D3.JS
+
 # Dependencies
 
 Framework
 
-- ExpressJS        
+   - ExpressJS        
        
 ExpressJS 4.0 dependencies
 
@@ -17,6 +21,7 @@ ExpressJS 4.0 dependencies
    - Cookie-parser
    - Debug
    - Serve-favicon
+   - Express Session
 
 Templating engine
 
@@ -29,3 +34,15 @@ Client-server communication and event reaction
 Twitter api client       
     
    - Twit   
+
+MongoDB Object Modeling
+
+	- Mongoose
+
+Login
+
+	- Passport
+	- Passport sub-packages
+	- Connect flash
+	- Bcrypt
+
