@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	.col-sm-6.col-sm-offset-3
+		h1
+			span.fa.fa-shield
+				|  Create a Battle
+		// Create a battle FORM
+		form(action='/create', method='post')
+			.input-group.margin-bottom-sm
+				span.input-group-addon Title
+				input.form-control(type='text', name='title', placeholder='Give your Battle a Title')
+			.input-group
+				span.input-group-addon Description
+				input.form-control(type='text', name='description', placeholder='Give your Battle a Description')
+			.input-group
+				span.input-group-addon Tracked Word #1
+				input.form-control(type='text', name='trackedWord_1', placeholder='What expression do you want to track?')
+			.input-group
+				span.input-group-addon Tracked Word #2
+				input.form-control(type='text', name='trackedWord_2', placeholder='What expression do you want to track?')				
+			button.btn.btn-warning.btn-lg(type='submit') Create

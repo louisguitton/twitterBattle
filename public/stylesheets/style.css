@@ -60,3 +60,11 @@ body {
 }
 
 .well p { word-wrap: break-word;}
+
+.input-group {
+    margin-bottom: 10px !important;
+}
+
+.btn {
+    margin-right: 5px !important;
+}

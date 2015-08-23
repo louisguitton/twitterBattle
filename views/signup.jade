@@ -10,12 +10,14 @@ block content
         .alert.alert-danger= message
       // LOGIN FORM
       form(action='/signup', method='post')
-        .form-group
-          label Email
-          input.form-control(type='text', name='email')
-        .form-group
-          label Password
-          input.form-control(type='password', name='password')
+        .input-group.margin-bottom-sm
+          span.input-group-addon
+            i.fa.fa-envelope-o.fa-fw
+          input.form-control(type='text', name='email', placeholder='Email address')
+        .input-group
+          span.input-group-addon
+            i.fa.fa-key.fa-fw
+          input.form-control(type='password', name='password', placeholder='Password')
         button.btn.btn-warning.btn-lg(type='submit') Signup
       hr
       p

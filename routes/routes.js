@@ -1,4 +1,9 @@
 // routes/routes.js
+
+var Battle            = require('../scripts/models/battle');
+
+
+
 module.exports = function(app, passport) {
 
 // =============================================================================
@@ -9,7 +14,7 @@ module.exports = function(app, passport) {
     // =====================================
     app.get('/', function(req, res) {
       res.render('index', { title: 'Twitter Battle' });
-    });
+  });
     // =====================================
     // PROFILE SECTION =====================
     // =====================================
@@ -28,11 +33,12 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
     // =====================================
-    // LOGIN LINKS =========================
+    // LOGIN DASHBOARD =====================
     // =====================================
     app.get('/auth',function(req,res){
         res.render('authenticate');
     });
+
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
@@ -101,20 +107,20 @@ module.exports = function(app, passport) {
 
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
-            passport.authenticate('google', {
-                    successRedirect : '/profile',
-                    failureRedirect : '/'
-            }));
+        passport.authenticate('google', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));
 
 // =============================================================================
 // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
 // =============================================================================
 
     // locally --------------------------------
-        app.get('/connect/local', function(req, res) {
-            console.log('get connect local');
-            res.render('connect-local.jade', { message: req.flash('loginMessage') });
-        });
+    app.get('/connect/local', function(req, res) {
+        console.log('get connect local');
+        res.render('connect-local.jade', { message: req.flash('loginMessage') });
+    });
         app.post('/connect/local', passport.authenticate('local-signup', {// authorize
             successRedirect : '/profile', // redirect to the secure profile section
             failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
@@ -190,7 +196,7 @@ module.exports = function(app, passport) {
         user.twitter.token = undefined;
         user.save(function(err) {
            res.redirect('/profile');
-        });
+       });
     });
 
     // google ---------------------------------
@@ -199,8 +205,25 @@ module.exports = function(app, passport) {
         user.google.token = undefined;
         user.save(function(err) {
            res.redirect('/profile');
-        });
+       });
     });
+// =============================================================================
+// BATTLES =====================================================================
+// =============================================================================
+    // =====================================
+    // CREATE BATTLE =======================
+    // =====================================
+    app.get('/create', function(req,res){
+        res.render('createBattle');
+    });  
+
+    /*
+    app.post('/create', saveBattle, {
+        successRedirect : '/',
+        failureRedirect : '/create'
+    });
+*/
+
 };
 
 // route middleware to make sure a user is logged in
@@ -213,3 +236,23 @@ function isLoggedIn(req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('/');
 }
+/*
+
+function saveBattle(title, description, trackedWord_1, trackedWord_2, done) {
+
+    var newBattle = new Battle();
+
+    newBattle.title   = title;
+    newBattle.description   = description;
+    newBattle.streams[0].trackedWords[0]   = trackedWord_1;
+    newBattle.streams[1].trackedWords[0]   = trackedWord_2;
+
+
+            // save the user
+            newBattle.save(function(err) {
+                if (err)
+                    throw err;
+                return done(null, newBattle);
+            });
+        };
+        */
