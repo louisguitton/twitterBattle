@@ -6,11 +6,11 @@
     "scripts": {
         "start": "nodemon ./bin/www"
     },
-    "repository":{
+    "repository": {
         "type": "git",
         "url": "https://github.com/louisguitton/twitterBattle"
     },
-    "bugs":{
+    "bugs": {
         "url": "https://github.com/louisguitton/twitterBattle/issues"
     },
     "dependencies": {

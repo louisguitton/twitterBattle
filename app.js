@@ -4,11 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session      = require('express-session');
+var session = require('express-session');
 
 var mongoose = require('mongoose');
 // var passport = require('passport');
-var flash    = require('connect-flash');
+var flash = require('connect-flash');
 
 var app = express();
 
@@ -27,17 +27,21 @@ var battles = require('./routes/battles');
 mongoose.connect(configDB.url); // connect to our database
 
 var passport = require('./scripts/config/passport') //(passport); // pass passport for configuration
-//maybe here it's an other variable
+  //maybe here it's an other variable
 
 // setup Express application
 app.use(express.static('public')); // app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 // passport configuration
-app.use(session({ secret: 'laguittemh' })); // session secret
+app.use(session({
+  secret: 'laguittemh'
+})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
@@ -88,7 +92,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 
 

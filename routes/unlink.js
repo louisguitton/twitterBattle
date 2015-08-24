@@ -11,8 +11,8 @@ var router = express.Router();
 
 // local -----------------------------------
 router.get('/local', function(req, res) {
-	var user            = req.user;
-	user.local.email    = undefined;
+	var user = req.user;
+	user.local.email = undefined;
 	user.local.password = undefined;
 	user.save(function(err) {
 		res.redirect('../profile');
@@ -21,7 +21,7 @@ router.get('/local', function(req, res) {
 
 // facebook -------------------------------
 router.get('/facebook', function(req, res) {
-	var user            = req.user;
+	var user = req.user;
 	user.facebook.token = undefined;
 	user.save(function(err) {
 		res.redirect('../profile');
@@ -30,7 +30,7 @@ router.get('/facebook', function(req, res) {
 
 // twitter --------------------------------
 router.get('/twitter', function(req, res) {
-	var user           = req.user;
+	var user = req.user;
 	user.twitter.token = undefined;
 	user.save(function(err) {
 		res.redirect('../profile');
@@ -39,7 +39,7 @@ router.get('/twitter', function(req, res) {
 
 // google ---------------------------------
 router.get('/google', function(req, res) {
-	var user          = req.user;
+	var user = req.user;
 	user.google.token = undefined;
 	user.save(function(err) {
 		res.redirect('../profile');

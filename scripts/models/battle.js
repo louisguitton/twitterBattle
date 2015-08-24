@@ -5,19 +5,19 @@
 
 // load the things we need
 var mongoose = require('mongoose');
-var bcrypt   = require('bcrypt-nodejs');
+var bcrypt = require('bcrypt-nodejs');
 
 // IN MONGOOSE EVERYTHING DERIVES FROM SCHEMAS
 // define the schema for our battle model
 var battleSchema = mongoose.Schema({
-	title : String,
-	Description : String,
-	streams : [{
-		trackedWords : [String]
+	title: String,
+	description: String,
+	streams: [{
+		trackedWords: [String]
 	}],
-	startDate : Date,
-	endDate : Date,
-	id : String
+	startDate: Date,
+	endDate: Date,
+	id: String
 
 });
 
@@ -33,4 +33,3 @@ var battleSchema = mongoose.Schema({
 module.exports = mongoose.model('Battle', battleSchema);
 // A model is a class with which we construct documents.
 // later, Documents are instances of the model
-
