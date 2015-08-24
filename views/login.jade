@@ -9,7 +9,7 @@ block content
       if (message.length > 0) 
         .alert.alert-danger= message
       // LOGIN FORM
-      form(action='/login', method='post')
+      form(action='/auth/login', method='post')
         .input-group.margin-bottom-sm
           span.input-group-addon
             i.fa.fa-envelope-o.fa-fw
@@ -22,7 +22,7 @@ block content
       hr
       p
         | Need an account? 
-        a(href='/signup') Signup
+        a(href='/auth/signup') Signup
       p
         | Or go 
         a(href='/') home

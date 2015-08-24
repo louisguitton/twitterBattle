@@ -37,8 +37,8 @@ Twitter api client
 
 MongoDB Object Modeling
 
-	- Mongoose
-
+	Most of advanced tutorials use Mongoose. Yet I am a beginner, and decided to follow [this Stackoverflow advice](http://stackoverflow.com/questions/23615377/monk-vs-mongoose-for-mongodb) and start by using the MongoDB client first. When I reach its limits, I will use Monk. Then if needed I will move on to Mongoose. Less is more.
+   
 Login
 
 	- Passport
