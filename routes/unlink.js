@@ -46,6 +46,11 @@ router.get('/google', function(req, res, next) {
 	next();
 }, updateBattlesAndDeleteUser);
 
+/* POST to delete user. */
+router.post('/delete', function(req, res) {
+	updateBattles(req, res, deleteUser(req, res));
+});
+
 
 module.exports = router;
 
@@ -89,5 +94,5 @@ function deleteUser(req, res) {
 		console.log('User deleted!');
 	});
 	console.log('we go home')
-	res.redirect('http://localhost:3000/');
+	res.redirect('../');
 };

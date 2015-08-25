@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-var User = require('../scripts/models/user');
-
 
 // middleware
 router.use(function timeLog(req, res, next) {
@@ -36,17 +34,6 @@ router.get('/profile', isLoggedIn, function(req, res) {
 router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
-});
-
-/* POST to delete user. */
-router.post('/users/delete', isLoggedIn, function(req, res) {
-  var user_id = req.body.user_id;
-  User.findByIdAndRemove(user_id, function(err) {
-    if (err) throw err;
-
-    console.log('User successfully deleted!');
-    res.redirect('/');
-  });
 });
 
 
