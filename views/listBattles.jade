@@ -12,7 +12,8 @@ block content
 					a.btn.btn-default.btn-sm(href='./edit?id='+battle._id)
 						i.fa.fa-pencil
 						|  Edit
-					a.btn.btn-danger(href='./list')
-						i.fa.fa-trash-o.fa-lg
-						|  Delete
+					form.btn.btn-sm(action='./delete?id='+battle._id,method='post')
+						button.btn.btn-danger.btn-sm(type='submit')
+							i.fa.fa-trash-o.fa-lg
+							|  Delete
 					

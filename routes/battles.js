@@ -78,6 +78,19 @@ router.post('/edit', isLoggedIn, function(req, res) {
 	)
 });
 
+/* POST to delete a battle. */
+router.post('/delete', isLoggedIn, function(req, res) {
+
+	var battle_id = req.param('id');
+	Battle.findByIdAndRemove(battle_id, function(err) {
+		if (err) throw err;
+
+		// we have deleted the user
+		console.log('Battle deleted!');
+		res.redirect('./list');
+	});
+});
+
 module.exports = router;
 
 // route middleware to make sure a user is logged in
