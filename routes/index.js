@@ -48,7 +48,7 @@ router.get('/mybattles', isLoggedIn, function(req, res) {
     console.log(myBattles);
 
     res.render('mybattles', {
-        myBattles: myBattles[0]
+        myBattles: myBattles
     });
   });
 });

@@ -3,9 +3,8 @@ extends layout
 block content
 	h1 My battles
 	ul
-		li
-			h3
-				= myBattles.title
-			p
-				= myBattles.description
+		each battle in myBattles
+			li
+				h3= battle.title
+				p= battle.description
 
