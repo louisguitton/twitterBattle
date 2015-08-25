@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var Battle = require('../scripts/models/battle');
 
 // middleware
 router.use(function timeLog(req, res, next) {
@@ -36,6 +37,21 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
+/* GET My Battles page. */
+router.get('/mybattles', isLoggedIn, function(req, res) {
+  Battle.find({
+    created_by: req.user._id
+  }, function(err, mybattles) {
+    if (err) throw err;
+
+    var myBattles = mybattles;
+    console.log(myBattles);
+
+    res.render('mybattles', {
+        myBattles: myBattles[0]
+    });
+  });
+});
 
 module.exports = router;
 

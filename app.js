@@ -18,7 +18,7 @@ var routes = require('./routes/index');
 var auth = require('./routes/auth');
 var connect = require('./routes/connect');
 var unlink = require('./routes/unlink');
-var battles = require('./routes/battles');
+var createBattle = require('./routes/createBattle');
 
 //=================
 // CONFIGURATION
@@ -58,7 +58,7 @@ app.use('/', routes);
 app.use('/auth', auth);
 app.use('/connect', connect);
 app.use('/unlink', unlink);
-app.use('/create', battles);
+app.use('/create', createBattle);
 
 
 // catch 404 and forward to error handler

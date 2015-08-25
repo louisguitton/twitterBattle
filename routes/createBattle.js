@@ -25,35 +25,32 @@ function isLoggedIn(req, res, next) {
 	if (req.isAuthenticated())
 		return next();
 	// if they aren't redirect them to the home page
-	res.redirect('../');
-}
+	res.redirect('../auth');
+};
 
 function createBattle(req, res, next) {
-
 	var title = req.body.title;
 	var description = req.body.description;
 	var trackedWord_1 = req.body.trackedWord_1;
 	var trackedWord_2 = req.body.trackedWord_2;
 
-	var newBattle = new Battle();
+	var newBattle = new Battle({
+		title: title,
+		description: description,
+		streams: [{
+			trackedWords: trackedWord_1
+		}, {
+			trackedWords: trackedWord_2
+		}]
+	});
 
 	console.log(newBattle);
+	console.log(req.user);
 
-	newBattle.title = title;
-	newBattle.description = description;
-	newBattle.streams[0] = {
-		trackedWords: trackedWord_1
-	};
-	newBattle.streams[1] = {
-		trackedWords: trackedWord_2
-	};
-
-	// save the battle
-	newBattle.save(function(err) {
+	// most important line!
+	newBattle.saveAuthor(req.user, newBattle.save(function(err) {
 		if (err)
 			throw err;
 		res.render('index.jade');
-		return next();
-		// return done(null, newBattle);
-	});
-}
+	}));
+};
