@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	h1 My battles
+	ul
+		each battle in myBattles
+			.row(name=battle._id)
+				.col-lg-8
+					h3= battle.title
+					p= battle.description
+				.col-lg-4
+					a.btn.btn-default.btn-sm(href='./edit?id='+battle._id)
+						i.fa.fa-pencil
+						|  Edit
+					a.btn.btn-danger(href='./list')
+						i.fa.fa-trash-o.fa-lg
+						|  Delete
+					

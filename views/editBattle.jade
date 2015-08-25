@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	.col-sm-6.col-sm-offset-3
+		h1
+			span.fa.fa-shield
+				|  Edit your Battle
+		// Create a battle FORM
+		form(action='./edit', method='post')
+			input.hidden(type='text', name='battle_id', value =battleEdited[0]._id)
+			.input-group.margin-bottom-sm
+				span.input-group-addon Title
+				input.form-control(type='text', name='title', value=battleEdited[0].title)
+			.input-group
+				span.input-group-addon Description
+				input.form-control(type='text', name='description', value=battleEdited[0].description)
+			.input-group
+				span.input-group-addon Tracked Word #1
+				input.form-control(type='text', name='trackedWord_1', value=battleEdited[0].streams[0].trackedWords)
+			.input-group
+				span.input-group-addon Tracked Word #2
+				input.form-control(type='text', name='trackedWord_2', value=battleEdited[0].streams[1].trackedWords	)				
+			button.btn.btn-warning.btn-lg(type='submit') Edit
