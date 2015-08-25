@@ -15,9 +15,10 @@ router.get('/list', isLoggedIn, function(req, res) {
 	}, function(err, myBattles) {
 		if (err) throw err;
 		console.log(myBattles);
-
+		var fullUrl = req.protocol + '://' + req.get('host') + '/watch';
 		res.render('listBattles', {
-			myBattles: myBattles
+			myBattles: myBattles,
+			url: fullUrl
 		});
 	});
 });

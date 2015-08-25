@@ -5,9 +5,14 @@ block content
 	ul
 		each battle in myBattles
 			.row(name=battle._id)
-				.col-lg-8
+				.col-lg-4
 					h3= battle.title
 					p= battle.description
+				.col-lg-4
+					.input-group.margin-bottom-sm
+						span.input-group-addon
+							i.fa.fa-link.fa-fw
+						input.form-control(type='text', value = url + '?id=' + battle._id)
 				.col-lg-4
 					a.btn.btn-default.btn-sm(href='./edit?id='+battle._id)
 						i.fa.fa-pencil

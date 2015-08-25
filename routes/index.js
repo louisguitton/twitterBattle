@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var Battle = require('../scripts/models/battle');
+
 
 // middleware
 router.use(function timeLog(req, res, next) {
@@ -36,6 +38,20 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
+/* GET watch page. */
+router.get('/watch', function(req, res) {
+  var battle_id = req.param('id');
+
+  Battle.find({
+    _id: battle_id
+  }, function(err, battleWatched) {
+    if (err) throw err;
+
+    res.render('watch', {
+      battleWatched: battleWatched
+    });
+  });
+});
 
 module.exports = router;
 

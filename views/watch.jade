@@ -1,0 +1,50 @@
+extends layout
+
+block content
+  // Page Heading
+  .row
+    .col-lg-12
+      h1.page-header
+        = battleWatched[0].title
+        small= '  ' + battleWatched[0].description
+  // /.row
+  .row
+      .col-lg-12
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title
+              i.fa.fa-bar-chart-o.fa-fw
+              |  Race Chart
+          .panel-body
+            .chart
+  // /.row
+  .row
+      .col-lg-6
+        #1.panel.panel-default.tracker
+          .panel-heading.heading-perso
+            h3.panel-title
+              i.fa.fa-comment.fa-fw
+              span.name 
+                = battleWatched[0].streams[0].trackedWords[0]
+              span.count 0
+          .panel-body
+            // add tweet scroll
+            .tweets
+      .col-lg-6
+        #2.panel.panel-default.tracker
+          .panel-heading.heading-perso
+            h3.panel-title
+              i.fa.fa-comment.fa-fw
+              span.name 
+                = battleWatched[0].streams[1].trackedWords[0]
+              span.count 0
+          .panel-body
+            // add tweet scroll
+            .tweets
+  // /.row
+
+  // Socket.io (2/2) = a client library that loads on the browser side
+  script(src='https://cdn.socket.io/socket.io-1.2.0.js')
+  //- script(src='javascripts/clientComms.js') 
+  script(src='javascripts/clientComms2.js') 
+  //- battleWatched[0]
