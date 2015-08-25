@@ -51,6 +51,6 @@ function createBattle(req, res, next) {
 	newBattle.saveAuthor(req.user, newBattle.save(function(err) {
 		if (err)
 			throw err;
-		res.render('index.jade');
+		res.redirect('../mybattles');
 	}));
 };

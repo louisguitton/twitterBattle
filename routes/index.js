@@ -41,10 +41,8 @@ router.get('/logout', function(req, res) {
 router.get('/mybattles', isLoggedIn, function(req, res) {
   Battle.find({
     created_by: req.user._id
-  }, function(err, mybattles) {
+  }, function(err, myBattles) {
     if (err) throw err;
-
-    var myBattles = mybattles;
     console.log(myBattles);
 
     res.render('mybattles', {
