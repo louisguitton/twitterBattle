@@ -5,9 +5,15 @@ block content
     h1
       span.fa.fa-anchor
       |  Profile Page
-    a.btn.btn-default.btn-sm(href='/logout') 
-      i.fa.fa-sign-out 
-      |  Logout
+    .row
+      a.btn.btn-default.btn-sm(href='/logout') 
+        i.fa.fa-sign-out 
+        |  Logout
+      form.btn.btn-sm(action='/users/delete',method='post')
+        input.hidden(type='text', name='user_id', value = user._id )
+        button.btn.btn-danger.btn-sm(type='submit')
+          i.fa.fa-ban 
+          |  Delete Account
   .row
     // LOCAL INFORMATION
     .col-sm-6
