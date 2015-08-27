@@ -1,20 +1,21 @@
-var serverComms = function(server) {
+var serverComms = function(battleToStart) {
 	// ==================================================
 	// Twitter.JS
 	var T = require('./twitter');
 
+	var server = require('../bin/www');
+
 	// ==================================================
 	// Socket.io (1/2) = a server that integrates with (or mounts on) the Node.JS HTTP Server
-	var io = require('socket.io')(server);
+	var io = require('socket.io').listen(server);
 
 	var stream_0 = T.stream('statuses/filter', {
-		track: ['justinbieber', 'Bieber', 'Justin Bieber'],
+		track: [battleToStart.streams[0].trackedWords], //
 		language: 'en'
 	});
 
 	var count_0 = 0;
 
-	var notEmptyTrackers = [1, 2];
 
 	stream_0.on('tweet', function(tweet_0) {
 		// console.log(tweet_1.text);
@@ -23,11 +24,11 @@ var serverComms = function(server) {
 			tweet: tweet_0,
 			count: count_0
 		});
-		io.emit('newTweet', notEmptyTrackers);
+		io.emit('newTweet');
 	})
 
 	var stream_1 = T.stream('statuses/filter', {
-		track: ['barackobama', 'Obama', 'Barack Obama'],
+		track: [battleToStart.streams[1].trackedWords], //
 		language: 'en'
 	});
 
@@ -40,7 +41,7 @@ var serverComms = function(server) {
 			tweet: tweet_1,
 			count: count_1
 		});
-		io.emit('newTweet', notEmptyTrackers);
+		io.emit('newTweet');
 
 	})
 }

@@ -38,7 +38,7 @@ router.post('/create', createBattle);
 /* GET form to edit a battle. */
 router.get('/edit', isLoggedIn, function(req, res) {
 
-	var battle_id = req.param('id');
+	var battle_id = req.query.id;
 
 	Battle.find({
 		_id: battle_id
@@ -82,13 +82,29 @@ router.post('/edit', isLoggedIn, function(req, res) {
 /* POST to delete a battle. */
 router.post('/delete', isLoggedIn, function(req, res) {
 
-	var battle_id = req.param('id');
+	var battle_id = req.query.id;
 	Battle.findByIdAndRemove(battle_id, function(err) {
 		if (err) throw err;
 
 		// we have deleted the user
 		console.log('Battle deleted!');
 		res.redirect('./list');
+	});
+});
+
+/* GET to start a battle. */
+router.get('/start', isLoggedIn, function(req, res) {
+	var battle_id = req.query.id;
+	Battle.find({
+		_id: battle_id
+	}, function(err, battleToStart) {
+		if (err) throw err;
+		battleToStart = battleToStart[0];
+
+		console.log(battleToStart.streams[0].trackedWords);
+		console.log(battleToStart.streams[1].trackedWords);
+		require('../scripts/serverComms2.js')(battleToStart);
+		res.redirect('/watch?id='+battle_id);
 	});
 });
 

@@ -14,8 +14,11 @@ block content
 							i.fa.fa-link.fa-fw
 						input.form-control(type='text', value = url + '?id=' + battle._id)
 				.col-lg-4
+					a.btn.btn-success.btn-sm(href='./start?id='+battle._id)
+						i.fa.fa-play.fa-lg
+						|  Start
 					a.btn.btn-default.btn-sm(href='./edit?id='+battle._id)
-						i.fa.fa-pencil
+						i.fa.fa-pencil.fa-lg
 						|  Edit
 					form.btn.btn-sm(action='./delete?id='+battle._id,method='post')
 						button.btn.btn-danger.btn-sm(type='submit')

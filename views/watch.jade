@@ -20,23 +20,25 @@ block content
   // /.row
   .row
       .col-lg-6
-        #1.panel.panel-default.tracker
+        #0.panel.panel-default.tracker
           .panel-heading.heading-perso
             h3.panel-title
               i.fa.fa-comment.fa-fw
               span.name 
-                = battleWatched[0].streams[0].trackedWords[0]
+                = 'default name'
+                //- = battleWatched[0].streams[0].trackedWords[0]
               span.count 0
           .panel-body
             // add tweet scroll
             .tweets
       .col-lg-6
-        #2.panel.panel-default.tracker
+        #1.panel.panel-default.tracker
           .panel-heading.heading-perso
             h3.panel-title
               i.fa.fa-comment.fa-fw
               span.name 
-                = battleWatched[0].streams[1].trackedWords[0]
+                = 'default name'                
+                //- = battleWatched[0].streams[1].trackedWords[0]
               span.count 0
           .panel-body
             // add tweet scroll
@@ -46,5 +48,4 @@ block content
   // Socket.io (2/2) = a client library that loads on the browser side
   script(src='https://cdn.socket.io/socket.io-1.2.0.js')
   //- script(src='javascripts/clientComms.js') 
-  script(src='javascripts/clientComms2.js') 
-  //- battleWatched[0]
+  script(src='javascripts/clientComms2.js',id='battle', data-battle=battleWatched[0]) 

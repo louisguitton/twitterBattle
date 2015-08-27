@@ -40,7 +40,7 @@ router.get('/logout', function(req, res) {
 
 /* GET watch page. */
 router.get('/watch', function(req, res) {
-  var battle_id = req.param('id');
+  var battle_id = req.query.id;
 
   Battle.find({
     _id: battle_id
