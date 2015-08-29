@@ -10,7 +10,7 @@ var serverComms = function(battleToStart) {
 	var io = require('socket.io').listen(server);
 
 	var stream_0 = T.stream('statuses/filter', {
-		track: [battleToStart.streams[0].trackedWords], //
+		track: battleToStart.streams[0].trackedWords, //
 		language: 'en'
 	});
 
@@ -28,7 +28,7 @@ var serverComms = function(battleToStart) {
 	})
 
 	var stream_1 = T.stream('statuses/filter', {
-		track: [battleToStart.streams[1].trackedWords], //
+		track: battleToStart.streams[1].trackedWords, //
 		language: 'en'
 	});
 

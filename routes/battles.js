@@ -103,7 +103,7 @@ router.get('/start', isLoggedIn, function(req, res) {
 
 		console.log(battleToStart.streams[0].trackedWords);
 		console.log(battleToStart.streams[1].trackedWords);
-		require('../scripts/serverComms2.js')(battleToStart);
+		require('../scripts/serverComms2.js')( battleToStart);
 		res.redirect('/watch?id='+battle_id);
 	});
 });

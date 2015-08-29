@@ -51,9 +51,6 @@ body {
     word-wrap:break-word; 
 }
 
-.hidden {
-    display: none;
-}
 
 .count {
     float:right
@@ -64,3 +61,4 @@ body {
 .input-group {
     margin-bottom: 10px !important;
 }
+
