@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/louisguitton/twitterBattle.svg?branch=master)](https://travis-ci.org/louisguitton/twitterBattle)
+
 # twitterBattle
 
 ```bash
