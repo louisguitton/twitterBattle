@@ -5,3 +5,5 @@ node_js:
   - "5.11"
   - "0.6"
   - "iojs"
+notifications:
+  slack: leolouis:3ABtsED6Nrz7Vfb6eD2EXBbY
