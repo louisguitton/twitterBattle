@@ -7,3 +7,10 @@ node_js:
   - "iojs"
 notifications:
   slack: leolouis:3ABtsED6Nrz7Vfb6eD2EXBbY
+install: npm install
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  api_key:
+    secure: "Encrypted API key"
+    
